@@ -1,4 +1,3 @@
-
 import 'package:your_project_name/model/ride/locations.dart';
 import '../repository/location_repo.dart';
 
