@@ -9,8 +9,7 @@ import '../../repository/ride_repository.dart';
 // Adding RideWithPreferences class that extends Ride
 class RideWithPreferences extends Ride {
   final bool acceptPets;
-  final bool acceptSmoking;
-  final bool acceptLuggage;
+
 
   RideWithPreferences({
     required Location departureLocation,
@@ -21,8 +20,7 @@ class RideWithPreferences extends Ride {
     required int availableSeats,
     required double pricePerSeat,
     required this.acceptPets,
-    required this.acceptSmoking,
-    required this.acceptLuggage,
+
   }) : super(
     departureLocation: departureLocation,
     arrivalLocation: arrivalLocation,
@@ -52,8 +50,7 @@ class MockRidesRepository implements RidesRepository {
       availableSeats: 2,
       pricePerSeat: 10.0,
       acceptPets: false,
-      acceptSmoking: false,
-      acceptLuggage: true,
+   
     ),
     RideWithPreferences(
       departureLocation: Location(name: 'Battambang', country: Country.cambodia),
@@ -71,8 +68,7 @@ class MockRidesRepository implements RidesRepository {
       availableSeats: 0,
       pricePerSeat: 10.0,
       acceptPets: false,
-      acceptSmoking: false,
-      acceptLuggage: true,
+
     ),
     RideWithPreferences(
       departureLocation: Location(name: 'Battambang', country: Country.cambodia),
@@ -90,8 +86,7 @@ class MockRidesRepository implements RidesRepository {
       availableSeats: 1,
       pricePerSeat: 15.0,
       acceptPets: false,
-      acceptSmoking: true,
-      acceptLuggage: true,
+
     ),
     RideWithPreferences(
       departureLocation: Location(name: 'Battambang', country: Country.cambodia),
@@ -109,8 +104,7 @@ class MockRidesRepository implements RidesRepository {
       availableSeats: 2,
       pricePerSeat: 12.0,
       acceptPets: true,
-      acceptSmoking: false,
-      acceptLuggage: true,
+
     ),
     RideWithPreferences(
       departureLocation: Location(name: 'Battambang', country: Country.cambodia),
@@ -128,8 +122,7 @@ class MockRidesRepository implements RidesRepository {
       availableSeats: 1,
       pricePerSeat: 15.0,
       acceptPets: false,
-      acceptSmoking: false,
-      acceptLuggage: true,
+
     ),
   ];
 
@@ -156,4 +149,5 @@ class MockRidesRepository implements RidesRepository {
       return true;
     }).toList();
   }
+
 }
