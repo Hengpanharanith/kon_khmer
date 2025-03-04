@@ -14,4 +14,5 @@ class MockLocationsRepository implements LocationsRepository {
       Location(name: 'Kampot', country: Country.cambodia),
     ];
   }
+  
 }
