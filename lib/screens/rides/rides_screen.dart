@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:your_project_name/repository/mock/mock_ride_repo.dart';
 import 'package:your_project_name/screens/rides/widgets/ride_pref_bar.dart';
-
-import '../../model/ride/ride.dart';
 import '../../model/ride_pref/ride_pref.dart';
 import '../../service/rides_service.dart';
 import '../../theme/theme.dart';
 import 'widgets/rides_tile.dart';
 
-///
-///  The Ride Selection screen allow user to select a ride, once ride preferences have been defined.
-///  The screen also allow user to re-define the ride preferences and to activate some filters.
-///
+/// The Ride Selection screen allows users to select a ride once ride preferences have been defined.
+/// The screen also allows users to redefine ride preferences and activate some filters.
 class RidesScreen extends StatefulWidget {
   final RidePref initialRidePref;
 
@@ -31,8 +28,13 @@ class _RidesScreenState extends State<RidesScreen> {
     _currentRidePref = widget.initialRidePref;
   }
 
-  List<Ride> get matchingRides {
-    return _ridesService.getRides(_currentRidePref, _filter);
+  // Change the type to List<RideWithPreferences> to filter and display correct rides
+  List<RideWithPreferences> get matchingRides {
+    return _ridesService
+        .getRides(_currentRidePref, _filter)
+        .where((ride) => ride is RideWithPreferences)
+        .cast<RideWithPreferences>()
+        .toList();
   }
 
   void onRidePrefPressed() {
@@ -99,11 +101,12 @@ class _RidesScreenState extends State<RidesScreen> {
             left: BlaSpacings.m, right: BlaSpacings.m, top: BlaSpacings.s),
         child: Column(
           children: [
-            // Top search Search bar
+            // Top search RidePrefBar
             RidePrefBar(
-                ridePref: _currentRidePref,
-                onRidePrefPressed: onRidePrefPressed,
-                onFilterPressed: onFilterPressed),
+              ridePref: _currentRidePref,
+              onRidePrefPressed: onRidePrefPressed,
+              onFilterPressed: onFilterPressed,
+            ),
 
             const SizedBox(height: BlaSpacings.m),
 
@@ -115,7 +118,7 @@ class _RidesScreenState extends State<RidesScreen> {
                   : ListView.builder(
                       itemCount: rides.length,
                       itemBuilder: (ctx, index) => RideTile(
-                        ride: rides[index],
+                        ride: rides[index], // Passing RideWithPreferences
                         onPressed: () {
                           // Handle ride selection
                           print("Selected ride: ${rides[index]}");
