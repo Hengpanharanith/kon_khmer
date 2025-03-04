@@ -1,7 +1,7 @@
 import 'package:your_project_name/model/ride_pref/ride_pref.dart';
 import 'package:your_project_name/repository/ride_repository.dart';
 
-import '../dummy_data/dummy_data.dart';
+
 import '../model/ride/ride.dart';
 
 // Ride sort types for bonus
