@@ -24,7 +24,7 @@ class RidePrefScreen extends StatefulWidget {
 }
 
 class _RidePrefScreenState extends State<RidePrefScreen> {
-  onRidePrefSelected(RidePref ridePref) {
+  onRidePrefSelected(RidePreference ridePref) {
     // 1 - Navigate to the rides screen (with a buttom to top animation)
     Navigator.of(context)
         .push(AnimationUtils.createBottomToTopRoute(RidesScreen(
@@ -60,7 +60,7 @@ class _RidePrefScreenState extends State<RidePrefScreen> {
                 children: [
                   // 2.1 Display the Form to input the ride preferences
                   RidePrefForm(
-                    initRidePref: RidePrefService.currentRidePref,
+                    initRidePref: RidePrefService().currentRidePref,
                   ),
                   SizedBox(height: BlaSpacings.m),
 
@@ -70,11 +70,11 @@ class _RidePrefScreenState extends State<RidePrefScreen> {
                     child: ListView.builder(
                       shrinkWrap: true, // Fix ListView height issue
                       physics: AlwaysScrollableScrollPhysics(),
-                      itemCount: RidePrefService.ridePrefsHistory.length,
+                      itemCount: RidePrefService().ridePrefsHistory.length,
                       itemBuilder: (ctx, index) => RidePrefHistoryTile(
-                        ridePref: RidePrefService.ridePrefsHistory[index],
+                        ridePref: RidePrefService().ridePrefsHistory[index],
                         onPressed: () => onRidePrefSelected(
-                            RidePrefService.ridePrefsHistory[index]),
+                            RidePrefService().ridePrefsHistory[index]),
                       ),
                     ),
                   ),

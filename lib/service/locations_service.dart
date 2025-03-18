@@ -3,7 +3,7 @@ import '../repository/location_repo.dart';
 
 class LocationsService {
   static final LocationsService _instance = LocationsService._internal();
-  LocationsRepository? _repository;
+  LocationsRepository? _repository; //Store reference to the repository
 
   List<Location>? _availableLocations;
 
@@ -17,9 +17,9 @@ class LocationsService {
     _repository = repository;
     _availableLocations = null;
   }
-
+  //Function use for initial the repository
   List<Location> getLocations() {
-    _availableLocations ??= _repository!.getLocations();
+    _availableLocations ??= _repository!.getLocations(); // Get location using
     return _availableLocations!;
   }
 }

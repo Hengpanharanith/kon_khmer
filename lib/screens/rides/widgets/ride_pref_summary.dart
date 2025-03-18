@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:your_project_name/model/ride_pref/ride_pref.dart';
 
 class RidePrefSummary extends StatelessWidget {
-  final RidePref preferences;
+  final RidePreference preferences;
   final VoidCallback onEdit;
 
   const RidePrefSummary({

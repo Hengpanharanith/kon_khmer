@@ -4,8 +4,8 @@ import '../../../model/ride_pref/ride_pref.dart';
 
 
 class RidePrefModal extends StatelessWidget {
-  final RidePref initialPreferences;
-  final Function(RidePref) onSave;
+  final RidePreference initialPreferences;
+  final Function(RidePreference) onSave;
 
   const RidePrefModal({
     Key? key,
@@ -34,7 +34,7 @@ class RidePrefModal extends StatelessWidget {
   }
 }
 
-void showRidePrefModal(BuildContext context, RidePref initialPreferences, Function(RidePref) onSave) {
+void showRidePrefModal(BuildContext context, RidePreference initialPreferences, Function(RidePref) onSave) {
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,

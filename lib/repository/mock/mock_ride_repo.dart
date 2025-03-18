@@ -127,7 +127,7 @@ class MockRidesRepository implements RidesRepository {
   ];
 
   @override
-  List<Ride> getRides(RidePref preference, RidesFilter? filter) {
+  List<Ride> getRides(RidePreference preference, RidesFilter? filter) {
     return _rides.where((ride) {
       // Match departure and arrival
       if (ride.departureLocation.name != preference.departure.name ||

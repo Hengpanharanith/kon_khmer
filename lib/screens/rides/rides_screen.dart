@@ -9,7 +9,7 @@ import 'widgets/rides_tile.dart';
 /// The Ride Selection screen allows users to select a ride once ride preferences have been defined.
 /// The screen also allows users to redefine ride preferences and activate some filters.
 class RidesScreen extends StatefulWidget {
-  final RidePref initialRidePref;
+  final RidePreference initialRidePref;
 
   const RidesScreen({super.key, required this.initialRidePref});
 
@@ -18,7 +18,7 @@ class RidesScreen extends StatefulWidget {
 }
 
 class _RidesScreenState extends State<RidesScreen> {
-  late RidePref _currentRidePref;
+  late RidePreference _currentRidePref;
   RidesFilter? _filter;
   final RidesService _ridesService = RidesService();
 

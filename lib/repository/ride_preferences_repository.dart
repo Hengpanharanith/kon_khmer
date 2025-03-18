@@ -1,8 +1,8 @@
-// import '../model/ride_pref/ride_pref.dart';
+import '../model/ride_pref/ride_pref.dart';
 
-// abstract class RidePreferencesRepository {
+abstract class RidePreferencesRepository {
 
-//   List<RidePreference> getPastPreferences();
+  List<RidePreference> getPastPreferences();
 
-//   void addPreference(RidePreference preference);
-// }
+  void addPreference(RidePreference preference);
+}

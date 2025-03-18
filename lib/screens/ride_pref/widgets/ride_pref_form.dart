@@ -22,7 +22,7 @@ import 'ride_pref_input_tile.dart';
 ///
 class RidePrefForm extends StatefulWidget {
   // The form can be created with an optional initial RidePref.
-  final RidePref? initRidePref;
+  final RidePreference? initRidePref;
 
   const RidePrefForm({super.key, this.initRidePref});
 
@@ -98,7 +98,7 @@ class _RidePrefFormState extends State<RidePrefForm> {
 
     if (hasDeparture && hasArrival) {
       // 1- Crea a Ride Pref from user inputs
-      RidePref newRideRef = RidePref(
+      RidePreference newRideRef = RidePreference(
           departure: departure!,
           departureDate: departureDate,
           arrival: arrival!,
